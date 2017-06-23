@@ -2,9 +2,11 @@
 
 from tokenizer import tokenize
 
-# TODO: Extract to separate file
-Symbol = str
-
+# TODO: Remove these, I don't want to implement Scheme.
+# I want to create my own language
+Symbol = str          # A Scheme Symbol is implemented as a Python str
+List   = list         # A Scheme List is implemented as a Python list
+Number = (int, float) # A Scheme Number is implemented as a Python int or float
 
 def parse(program):
     "Read a Scheme expression from a string."
