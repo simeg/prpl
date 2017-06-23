@@ -13,6 +13,8 @@ A minimal programming language being written in Python 3. Inspired by [kimi](htt
 - [ ] Test tokenizer
 - [x] Write parser
 - [ ] Test parser
+- [ ] Write evaluator 
+- [ ] Test evaluator
 - [ ] Write REPL 
 - [ ] Test REPL
  
