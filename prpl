@@ -1,0 +1,29 @@
+#!/usr/bin/env python3
+
+import sys
+from tokenizer import tokenize
+from parser import parse
+from evaluator import evaluate
+
+def repl():
+    '''An interactive Read-Evaluate-Print Loop that takes in prpl code from a prompt and evaluates it'''
+    quit_commands = ["exit", "quit", "q"]
+    print("Welcome to prpl!")
+    print('To exit the interpreter, type "' + '" or "'.join(quit_commands) + '".')
+    prompt = 'prpl> '
+    while True:
+        command = input(prompt)
+        if command == "":
+            continue
+        if command in quit_commands:
+            print("Goodbye!")
+            return
+        val = evaluate(parse(tokenize(command)))
+#       print(kimify(val))
+
+if __name__ == "__main__":
+    if len(sys.argv) == 1:
+        repl()
+    if len(sys.argv) == 2:
+        # Do not start REPL but instead evaluate provided expression
+
