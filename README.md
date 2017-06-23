@@ -18,7 +18,10 @@ A minimal programming language (about to be) written in Python 3. Inspired by [k
 - Atomic expressions, things that cannot be broken down into smaller pieces. Examples would be datatypes such as numbers and symbols
 
 # Interpreter
-0. Verify syntactic rules
-0. Parse into AST (abstract syntax tree)
-0. Pass AST on to evaluation/execution
+1. Verify syntactic rules
+2. Parse into AST (abstract syntax tree)
+3. Pass AST on to evaluation/execution
+
+# Tools to use
+- [CI](https://circleci.com/)
 
