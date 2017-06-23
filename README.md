@@ -1,4 +1,4 @@
-# Purple
+# prpl
 A minimal programming language (about to be) written in Python 3. Inspired by [kimi](https://github.com/vakila/kimi).
 
 # TODO
