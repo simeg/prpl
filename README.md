@@ -9,12 +9,12 @@ A minimal programming language being written in Python 3. Inspired by [kimi](htt
 [1] http://eloquentjavascript.net/11_language.html
 [2] http://norvig.com/lispy.html
 
-[x] Write tokenizer
-[ ] Test tokenizer
-[x] Write parser
-[ ] Test parser
-[ ] Write REPL 
-[ ] Test REPL
+- [x] Write tokenizer
+- [ ] Test tokenizer
+- [x] Write parser
+- [ ] Test parser
+- [ ] Write REPL 
+- [ ] Test REPL
  
 # Interpreter
 1. Verify syntactic rules
