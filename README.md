@@ -15,6 +15,8 @@ A minimal programming language being written in Python 3. Inspired by [kimi](htt
 - [ ] Test parser
 - [ ] Write evaluator 
 - [ ] Test evaluator
+- [ ] Write environment 
+- [ ] Test environment 
 - [ ] Write REPL 
 - [ ] Test REPL
  
