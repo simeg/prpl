@@ -3,27 +3,46 @@
 import sys
 from tokenizer import tokenize
 from parser import parse
-from evaluator import evaluate
+from evaluator import eval
+
+Symbol = str          # A Scheme Symbol is implemented as a Python str
+List   = list         # A Scheme List is implemented as a Python list
+Number = (int, float) # A Scheme Number is implemented as a Python int or float
+
 
 def repl():
-    '''An interactive Read-Evaluate-Print Loop that takes in prpl code from a prompt and evaluates it'''
-    quit_commands = ["exit", "quit", "q"]
-    print("Welcome to prpl!")
-    print('To exit the interpreter, type "' + '" or "'.join(quit_commands) + '".')
+    '''An interactive Read-Evaluate-Print Loop that takes in prpl code
+    from a prompt and evaluates it'''
+    quit_commands = ['exit', 'quit', 'q']
+    print('Welcome to prpl!')
+    print('To exit the interpreter, type "' + '" or "'.join(quit_commands) +
+          '".')
     prompt = 'prpl> '
     while True:
         command = input(prompt)
-        if command == "":
+        if command == '':
             continue
         if command in quit_commands:
-            print("Goodbye!")
+            print('Goodbye!')
             return
-        val = evaluate(parse(tokenize(command)))
-#       print(kimify(val))
+        val = eval(parse(command))
+        if val is not None:
+            print(prplfy(val))
+
+def prplfy(exp):
+    'Convert a Python object back into a readable string.'
+    if isinstance(exp, List):
+        return '(' + ' '.join(map(schemestr, exp)) + ')' 
+    else:
+        return str(exp)
+
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:
         repl()
-    if len(sys.argv) == 2:
-        # Do not start REPL but instead evaluate provided expression
-
+    elif len(sys.argv) == 2:
+        program = sys.argv[1]
+        if program.endswith('.prpl'):
+            with open(program, 'r') as f:
+                program = f.read()
+        print(prplfy(eval(parse(program))))
