@@ -13,12 +13,13 @@ A minimal programming language being written in Python 3. Inspired by [kimi](htt
 - [ ] Test tokenizer
 - [x] Write parser
 - [ ] Test parser
-- [ ] Write evaluator 
+- [x] Write evaluator 
 - [ ] Test evaluator
-- [ ] Write environment 
+- [x] Write environment 
 - [ ] Test environment 
-- [ ] Write REPL 
+- [x] Write REPL 
 - [ ] Test REPL
+- [ ] Handle errors gracefully
  
 # Interpreter
 1. Verify syntactic rules
