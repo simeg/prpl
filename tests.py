@@ -3,6 +3,8 @@
 import unittest
 from tokenizer import *
 from parser import *
+from errors import *
+
 
 class TestTokenize(unittest.TestCase):
 
@@ -26,6 +28,15 @@ class TestParser(unittest.TestCase):
         self.assertEqual(create_ast(['(', '+', '2', '3', ')']), ['+', 2, 3])
         self.assertEqual(create_ast(['(', '(', '+', '2', '3', ')', '(', '*', '3', '2', ')', ')']), [['+', 2, 3], ['*', 3, 2]])
         self.assertEqual(create_ast(['(', '(', '+', '2', '3', ')', '(', '*', 'pi', '(', '*', '2', '2', ')', ')', ')']), [['+', 2, 3], ['*', 'pi', ['*', 2, 2]]])
+
+
+class TestErrors(unittest.TestCase):
+
+    def test_throw_error(self):
+        self.assertRaises(SyntaxException, lambda: throw_error('syntax', 'irrelevant-err-msg'))
+
+    def test_throw_unknown_error(self):
+        self.assertRaises(UnknownException, lambda: throw_error('non-existing-type', 'irrelevant-err-msg'))
 
 
 if __name__ == '__main__':
