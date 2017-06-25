@@ -4,6 +4,7 @@ import unittest
 from tokenizer import *
 from parser import *
 from errors import *
+from evaluator import *
 
 
 class TestTokenize(unittest.TestCase):
@@ -37,6 +38,16 @@ class TestErrors(unittest.TestCase):
 
     def test_throw_unknown_error(self):
         self.assertRaises(UnknownException, lambda: throw_error('non-existing-type', 'irrelevant-err-msg'))
+
+class TestEval(unittest.TestCase):
+
+    def test_procedure_call(self):
+        self.assertEqual(eval(['=', 2, 0]), False)
+        # Test that variable reference replacement works
+        # The add fn has to be mocked because the entire environment is passed
+        self.assertEqual(eval(['+', 'foo', 5], {'+': lambda x,y:x+y, 'foo': 5}), 10)
+        # Test that conditionals work
+        self.assertEqual(eval(['if', ['=', True, True], 10, 20]), 10)
 
 
 if __name__ == '__main__':
