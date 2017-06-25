@@ -2,7 +2,7 @@
 
 import sys
 from tokenizer import tokenize
-from parser import parse
+from my_parser import parse
 from evaluator import eval
 
 Symbol = str          # A Scheme Symbol is implemented as a Python str

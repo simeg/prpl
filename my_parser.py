@@ -8,7 +8,7 @@ Symbol = str          # A Scheme Symbol is implemented as a Python str
 List   = list         # A Scheme List is implemented as a Python list
 Number = (int, float) # A Scheme Number is implemented as a Python int or float
 
-def custom_parser(program):
+def parse(program):
     "Read a Scheme expression from a string."
     return create_ast(tokenize(program))
 

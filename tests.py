@@ -2,7 +2,7 @@
 
 import unittest
 from tokenizer import *
-from parser import custom_parser, create_ast
+from my_parser import parse, create_ast
 from errors import *
 from evaluator import *
 
@@ -23,7 +23,7 @@ class TestTokenize(unittest.TestCase):
 class TestParser(unittest.TestCase):
 
     def test_parse_article_example(self):
-        self.assertEqual(custom_parser("(begin (define r 10) (* pi (* r r)))"), ['begin', ['define', 'r', 10], ['*', 'pi', ['*', 'r', 'r']]])
+        self.assertEqual(parse("(begin (define r 10) (* pi (* r r)))"), ['begin', ['define', 'r', 10], ['*', 'pi', ['*', 'r', 'r']]])
 
     def test_create_ast(self):
         self.assertEqual(create_ast(['(', '+', '2', '3', ')']), ['+', 2, 3])
