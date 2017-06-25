@@ -20,6 +20,7 @@ A minimal programming language being written in Python 3. Inspired by [kimi](htt
 - [x] Write REPL 
 - [ ] Test REPL
 - [ ] Handle errors gracefully
+- [ ] Make REPL available online
  
 # Interpreter
 1. Verify syntactic rules
@@ -28,4 +29,3 @@ A minimal programming language being written in Python 3. Inspired by [kimi](htt
 
 # Tools to use
 - [CI](https://circleci.com/)
-
