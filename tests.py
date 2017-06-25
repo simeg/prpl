@@ -2,7 +2,7 @@
 
 import unittest
 from tokenizer import *
-from parser import *
+from parser import parse, create_ast
 from errors import *
 from evaluator import *
 
