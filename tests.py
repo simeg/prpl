@@ -30,6 +30,11 @@ class TestParser(unittest.TestCase):
         self.assertEqual(create_ast(['(', '(', '+', '2', '3', ')', '(', '*', '3', '2', ')', ')']), [['+', 2, 3], ['*', 3, 2]])
         self.assertEqual(create_ast(['(', '(', '+', '2', '3', ')', '(', '*', 'pi', '(', '*', '2', '2', ')', ')', ')']), [['+', 2, 3], ['*', 'pi', ['*', 2, 2]]])
 
+    def test_create_ast_errors(self):
+        self.assertRaises(UnexpectedEndOfFileException, lambda: create_ast([]))
+        self.assertRaises(UnexpectedCharacterException, lambda: create_ast([')']))
+        self.assertRaises(UnexpectedCharacterException, lambda: create_ast([')', '+', '2', '3', ')']))
+
 
 class TestErrors(unittest.TestCase):
 
