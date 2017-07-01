@@ -23,7 +23,7 @@ exception_types = {
         'syntax': SyntaxException,
         'element_not_found': ElementNotFoundException,
         'unexpected_end_of_file': UnexpectedEndOfFileException,
-        'unexpected_symbol': UnexpectedSymbolException,
+        'unexpected_symbol': UnexpectedCharacterException,
         }
 
 
