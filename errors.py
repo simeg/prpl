@@ -12,6 +12,10 @@ class UnexpectedEndOfFileException(Exception):
     pass
 
 
+class UnexpectedCharacterException(Exception):
+    pass
+
+
 class UnknownException(Exception):
     pass
 
@@ -19,6 +23,7 @@ exception_types = {
         'syntax': SyntaxException,
         'element_not_found': ElementNotFoundException,
         'unexpected_end_of_file': UnexpectedEndOfFileException,
+        'unexpected_symbol': UnexpectedSymbolException,
         }
 
 
