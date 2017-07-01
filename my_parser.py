@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from tokenizer import tokenize
+from errors import throw_error
 
 # TODO: Remove these, I don't want to implement Scheme.
 # I want to create my own language
@@ -16,7 +17,7 @@ def parse(program):
 def create_ast(tokens):
     "Create an Abstract Syntax Tree from provided tokens."
     if len(tokens) == 0:
-        raise SyntaxError('Unexpected EOF while reading')
+        throw_error('unexpected_end_of_file', 'Unexpected EOF while reading')
     token = tokens.pop(0)
     if token == '(':
         L = []
@@ -25,7 +26,7 @@ def create_ast(tokens):
         tokens.pop(0) # pop off ')'
         return L
     elif token == ')':
-        raise SyntaxError('Unexpected )')
+        throw_error('unexpected_symbol', 'Unexpected )')
     else:
         return atom(token)
 
