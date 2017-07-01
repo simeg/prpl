@@ -8,12 +8,17 @@ class ElementNotFoundException(Exception):
     pass
 
 
+class UnexpectedEndOfFileException(Exception):
+    pass
+
+
 class UnknownException(Exception):
     pass
 
 exception_types = {
         'syntax': SyntaxException,
         'element_not_found': ElementNotFoundException,
+        'unexpected_end_of_file': UnexpectedEndOfFileException,
         }
 
 
