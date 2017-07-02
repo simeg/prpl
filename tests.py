@@ -10,11 +10,15 @@ from evaluator import *
 class TestTokenize(unittest.TestCase):
 
     def test_simple_numbers(self):
-        self.assertEqual(tokenize('3'), [('3')])
-        self.assertEqual(tokenize('+3'), [('+3')])
-        self.assertEqual(tokenize('-4'), [('-4')])
+        self.assertEqual(tokenize('3'), ['3'])
+        self.assertEqual(tokenize('+3'), ['+3'])
+        self.assertEqual(tokenize('-4'), ['-4'])
         self.assertEqual(tokenize('3.5'), ['3.5'])
         self.assertEqual(tokenize('-2-4'), ['-2-4'])
+
+    def test_simple_expressions(self):
+        self.assertEqual(tokenize('(+ 1 2)'), ['(', '+', '1', '2', ')'])
+        self.assertEqual(tokenize('(+ (+ 1 2) (* 2 2))'), ['(', '+', '(', '+', '1', '2', ')', '(', '*', '2', '2', ')', ')',])
 
     def test_article_example(self):
         self.assertEqual(tokenize("(begin (define r 10) (* pi (* r r)))"), ['(', 'begin', '(', 'define', 'r', '10', ')', '(', '*', 'pi', '(', '*', 'r', 'r', ')', ')', ')'])
@@ -43,6 +47,7 @@ class TestErrors(unittest.TestCase):
 
     def test_throw_unknown_error(self):
         self.assertRaises(UnknownException, lambda: throw_error('non-existing-type', 'irrelevant-err-msg'))
+
 
 class TestEval(unittest.TestCase):
 
