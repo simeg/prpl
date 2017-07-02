@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+
 class SyntaxException(Exception):
     pass
 
@@ -32,4 +33,3 @@ def throw_error(err_type, msg=''):
         raise exception_types[err_type](msg)
     else:
         raise UnknownException('Unknown exception type: %s' % err_type)
-

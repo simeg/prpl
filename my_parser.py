@@ -5,9 +5,10 @@ from errors import throw_error
 
 # TODO: Remove these, I don't want to implement Scheme.
 # I want to create my own language
-Symbol = str          # A Scheme Symbol is implemented as a Python str
-List   = list         # A Scheme List is implemented as a Python list
-Number = (int, float) # A Scheme Number is implemented as a Python int or float
+Symbol = str
+List = list
+Number = (int, float)
+
 
 def parse(program):
     "Read a Scheme expression from a string."
@@ -23,7 +24,7 @@ def create_ast(tokens):
         expr = []
         while tokens[0] != ')':
             expr.append(create_ast(tokens))
-        tokens.pop(0) # pop off ')'
+        tokens.pop(0)  # pop off ')'
         return expr
     elif token == ')':
         throw_error('unexpected_symbol', 'Unexpected )')
@@ -32,11 +33,13 @@ def create_ast(tokens):
 
 
 def atom(token):
-    "Numbers become numbers; every other token is a symbol."
-    try: return int(token)
+    "Numbers become numbers, every other token is a symbol."
+    try:
+        return int(token)
     except ValueError:
         # int() throws ValueError if token has any decimals
-        try: return float(token)
+        try:
+            return float(token)
         except ValueError:
             # If parsing to int and float fails, return as Symbol
             return Symbol(token)

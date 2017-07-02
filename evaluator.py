@@ -5,9 +5,10 @@ from errors import throw_error
 
 # TODO: Remove these, I don't want to implement Scheme.
 # I want to create my own language
-Symbol = str          # A Scheme Symbol is implemented as a Python str
-List   = list         # A Scheme List is implemented as a Python list
-Number = (int, float) # A Scheme Number is implemented as a Python int or float
+Symbol = str
+List = list
+Number = (int, float)
+
 
 def eval(x, env=global_env):
     "Evaluate an expression in an environment."
@@ -21,7 +22,7 @@ def eval(x, env=global_env):
 
     elif x[0] == 'if':             # conditional
         (_, test, conseq, alt) = x
-        exp = (conseq if eval(test, env) else alt) # evaluate the conditional
+        exp = (conseq if eval(test, env) else alt)  # evaluate the conditional
         return eval(exp, env)
 
     elif x[0] == 'define':         # definition
