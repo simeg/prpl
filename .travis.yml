@@ -8,5 +8,6 @@ python:
   - "3.5"
   - "3.6"
   - "nightly"
-script: make test
+install: make install
+script: make ci
 
