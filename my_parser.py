@@ -20,11 +20,11 @@ def create_ast(tokens):
         throw_error('unexpected_end_of_file', 'Unexpected EOF while reading')
     token = tokens.pop(0)
     if token == '(':
-        L = []
+        expr = []
         while tokens[0] != ')':
-            L.append(create_ast(tokens))
+            expr.append(create_ast(tokens))
         tokens.pop(0) # pop off ')'
-        return L
+        return expr
     elif token == ')':
         throw_error('unexpected_symbol', 'Unexpected )')
     else:
@@ -35,6 +35,8 @@ def atom(token):
     "Numbers become numbers; every other token is a symbol."
     try: return int(token)
     except ValueError:
+        # int() throws ValueError if token has any decimals
         try: return float(token)
         except ValueError:
+            # If parsing to int and float fails, return as Symbol
             return Symbol(token)
