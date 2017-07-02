@@ -1,4 +1,5 @@
-# prpl
+# prpl [![Build Status](https://secure.travis-ci.org/simeg/prpl.svg)](https://travis-ci.org/simeg/prpl)
+
 A minimal programming language being written in Python 3. Inspired by [kimi](https://github.com/vakila/kimi).
 
 # TODO for MVP
