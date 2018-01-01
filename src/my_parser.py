@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
-from tokenizer import tokenize
-from errors import throw_error
+from .errors import throw_error
+
+from src.tokenizer import tokenize
 
 # TODO: Remove these, I don't want to implement Scheme.
 # I want to create my own language

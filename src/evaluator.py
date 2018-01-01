@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
-from environment import *
-from errors import throw_error
+from .errors import throw_error
+
+from .environment import *
 
 # TODO: Remove these, I don't want to implement Scheme.
 # I want to create my own language

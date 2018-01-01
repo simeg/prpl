@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
 import sys
-from tokenizer import tokenize
-from my_parser import parse
-from evaluator import eval
+
+from src.evaluator import eval
+from src.my_parser import parse
 
 Symbol = str
 List = list

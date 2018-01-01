@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 
 import unittest
-from tokenizer import *
-from my_parser import parse, create_ast
-from errors import *
-from evaluator import *
+
+from src.errors import *
+from src.evaluator import *
+from src.my_parser import parse, create_ast
+from src.tokenizer import *
 
 
 class TestTokenize(unittest.TestCase):
